@@ -28,7 +28,7 @@ import lombok.ToString;
 @Table(name = "Registration_Table")
 public class Registration {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
 	@Embedded
 	private Name name;
@@ -36,14 +36,14 @@ public class Registration {
 	@javax.validation.constraints.Email
 	private String Email;
 	@NotNull
-	@Pattern(regexp = "^[a-zA-Z]\\w{3,14}$")
+	//@Pattern(regexp = "^[a-zA-Z]\\w{3,14}$")
 	private String Password;
 	
 
 	@Column(length = 50)
 	@NotNull
 	private String Address;
-	@Pattern(regexp = "/^(\\d{3})[- ]?(\\d{3})[- ]?(\\d{4})$/")
+	//@Pattern(regexp = "/^(\\d{3})[- ]?(\\d{3})[- ]?(\\d{4})$/")
 	@NotNull
 	private String PhoneNo;
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)

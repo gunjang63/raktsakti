@@ -31,14 +31,14 @@ import lombok.ToString;
 @ToString
 public class Camp {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long CampId;
 	@NotNull
 	@Column(length = 120)
 	private String CampName;
 
-	
-	@OneToMany(mappedBy = "camps")
-	private List<Donor> donor;
+//	
+//	@OneToMany(mappedBy = "camps")
+//	private List<Donor> donor;
 
 }

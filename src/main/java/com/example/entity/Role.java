@@ -26,12 +26,11 @@ import lombok.ToString;
 @ToString
 public class Role {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long RoleId;
-	@NotNull
 	
 	private String RoleName;
-	@OneToOne(mappedBy = "role")
-	private Registration registration;
+	//@OneToOne(mappedBy = "role")
+	//private Registration registration;
 	
 }
