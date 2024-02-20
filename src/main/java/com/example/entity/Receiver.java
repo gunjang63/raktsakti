@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -26,6 +28,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+@CrossOrigin(origins="http://localhost:3000/")
 public class Receiver {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

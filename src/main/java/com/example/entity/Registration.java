@@ -4,6 +4,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +15,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,29 +30,49 @@ import lombok.ToString;
 @Setter
 @ToString
 @Table(name = "Registration_Table")
+@CrossOrigin(origins="http://localhost:3000/")
 public class Registration {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
-	@Embedded
-	private Name name;
-	@NotNull
-	@javax.validation.constraints.Email
+	
+	
+	
+	private String FirstName;
+	
+	
+	
+	
 	private String Email;
-	@NotNull
+	
 	//@Pattern(regexp = "^[a-zA-Z]\\w{3,14}$")
 	private String Password;
 	
 
-	@Column(length = 50)
-	@NotNull
+	
+	
 	private String Address;
 	//@Pattern(regexp = "/^(\\d{3})[- ]?(\\d{3})[- ]?(\\d{4})$/")
-	@NotNull
+	
+	
+	
 	private String PhoneNo;
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name = "RoleId",referencedColumnName = "RoleId")
-	private Role role;
+	//@Enumerated(EnumType.STRING)
+	private String Role="USER";
+//	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//	@JoinColumn(name = "RoleId",referencedColumnName = "RoleId")
+//	private Role role;
+	public Registration(Long id,String firstName,String email,
+			String password, String address,String phoneNo) {
+		super();
+		Id = id;
+		FirstName = firstName;
+		Email = email;
+		Password = password;
+		Address = address;
+		PhoneNo = phoneNo;
+		
+	}
 	
 	
 }

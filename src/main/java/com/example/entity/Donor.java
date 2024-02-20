@@ -17,6 +17,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -32,7 +34,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @Table(name = "Donor_Table")
-
+@CrossOrigin(origins="http://localhost:3000/")
 public class Donor {
 	@Id
 	@GeneratedValue(strategy =GenerationType.AUTO)
